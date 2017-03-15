@@ -1,9 +1,8 @@
-#SomeNoise 
 ### Status: WIP
 
 This is a practical exercise for image processing class.
 
-##Problem
+## Problem
 
 Add noise in the image using some distribution functions studied
 
