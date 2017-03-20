@@ -28,28 +28,27 @@ def applyNoise(pixel, fda):
 def nothing(x):
     pass
 
-def calc():
+def calc(z):
+    fda = calcFDA(X)
+    for col in xrange(len(img)):
+        for row in xrange(len(img[col])):
+            img[col, row] = applyNoise(img[col, row], fda)
+            
+    cv2.imshow('image',img)
+    
+       
 
+def init():
     img = cv2.imread('/home/atlanticolab/Imagens/lena512.bmp', 0)
     cv2.namedWindow('image')
     
-    cv2.createTrackbar('mean','image',1,100,nothing)
-    cv2.createTrackbar('variance','image',1,100,nothing)
-    cv2.createTrackbar('amplitude','image',1,100,nothing)
-    
+    cv2.createTrackbar('variance','image',1,100,calc)
+    cv2.createTrackbar('mean','image',1,100,calc)
+    cv2.createTrackbar('amplitude','image',1,100,calc)
     
     while(1):
-        
-        fda = calcFDA(X)
-        for col in xrange(len(img)):
-            for row in xrange(len(img[col])):
-                img[col, row] = applyNoise(img[col, row], fda)
-                
-        cv2.imshow('image',img)
         k = cv2.waitKey(1) & 0xFF
         if k == 27:
-            break            
+            break         
     
-    cv2.destroyAllWindows()
-    
-calc()    
+init()    
