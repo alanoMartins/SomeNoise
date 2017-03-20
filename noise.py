@@ -6,6 +6,7 @@ import noises as no
 variance = 1
 mean = 0
 X = range(-255, 255)
+img = cv2.imread('/home/atlanticolab/Imagens/lena512.bmp', 0)
 
 def calcFDA(vect):
     fdp = []
@@ -39,7 +40,7 @@ def calc(z):
        
 
 def init():
-    img = cv2.imread('/home/atlanticolab/Imagens/lena512.bmp', 0)
+    
     cv2.namedWindow('image')
     
     cv2.createTrackbar('variance','image',1,100,calc)
