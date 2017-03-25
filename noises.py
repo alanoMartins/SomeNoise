@@ -6,18 +6,19 @@ def gauss(x):
     mean = cv2.getTrackbarPos('mean','image')
     variance = cv2.getTrackbarPos('variance','image') + 1
     
-    expo = -0.5 * ((math.floor((x-mean) / variance)) ** 2)
+    expo = math.floor((((x-mean) ** 2) / (2 * variance)))
     tmp = np.e ** expo
     tmp2 = (1 / (variance * (math.sqrt((2 * math.pi)))))
     return np.exp(expo) * (1 / (variance * (math.sqrt((2 * math.pi)))))
 
 def uniforme(x):
-    a = 10
-    b = 20
-    if x >= a and x <= b :
-        1 / (b - a)
+    a = cv2.getTrackbarPos('mean','image')
+    b = cv2.getTrackbarPos('variance','image')
+    
+    if x >= a and x <= b and a != b:
+        return 1 / (b - a)
     else:
-        0
+        return 0
         
 def erlangIn(x, a, b):
     
