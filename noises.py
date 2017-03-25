@@ -31,8 +31,8 @@ def erlangIn(x, a, b):
         return (divz / divd) * expo
     
 def erlang(x):
-    a = 10
-    b = 10
+    a = cv2.getTrackbarPos('mean','image')
+    b = cv2.getTrackbarPos('variance','image')
     
     return erlangIn(x, a, b) 
 
