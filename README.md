@@ -1,3 +1,5 @@
+# Noise generator
+
 This is a practical exercise for image processing class.
 
 ## Problem
@@ -13,4 +15,4 @@ Add noise in the image using some distribution functions studied
 5. Search the nearest value in c.d.f data
 6. Generate and apply this noise mask in some image
 
-> This is a demonstration proposal for educational purposes
+> This is a demonstration for educational purposes
